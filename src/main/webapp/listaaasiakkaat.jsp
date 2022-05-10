@@ -32,18 +32,19 @@ tr {
 
 </head>
 <body>
-
-<form action="haeasiakkaat" method="get">
+<form id="listcustomers" action="haeasiakkaat" method="get">
 <table id="list">
 	<thead>
 		<tr style="background-color:slateblue;">
-			<th colspan="6" class="center"><a href='lisaaasiakas.jsp'><span style=color:black;font-weight:bold>Lisää uusi asiakas</span></a></th>
+			<th style=text-align:right></th>
+			<th colspan="3" ><a href='lisaaasiakas.jsp'><span style=color:black;font-weight:bold>Lisää uusi asiakas</span></a></th>
 			  
 		</tr>	
 		<tr style="background-color:slateblue;">
 			<th style=text-align:right>Hakusana:</th>
-			<th colspan="4"><input type="text" name="searchwrd" id="searchwrd" value="${param['searchwrd']}"></th>
-			<th style=text-align:left><input type="submit" value="hae" id="searchbtn"></th>
+			<th colspan="3"><input type="text" name="searchwrd" id="searchwrd" value="${param['searchwrd']}"></th>
+			<th style=text-align:center><input type="submit" value="Hae" id="searchbtn"></th>
+			<th style=text-align:center><input type="button" value="Tyhjennä" id="clearbtn" onclick="clearSearch()"></th>
 		</tr>			
 		<tr>
 			<th> Asiakas nro. </th>
@@ -93,16 +94,24 @@ tr {
 	</tbody>
 </table>
 </form>
+<span id="info"></span>
 <script type="text/javascript">
 
-function varmista(asiakasid){
+function varmista(asiakasnro){
 	if(confirm("Haluatko varmasti poistaa asiakkaan "+ asiakasnro + "?")){
 		document.location="poistaasiakas?asiakasid="+asiakasnro;
 	}
 }
 
+function clearSearch(){
+	document.getElementById("searchwrd").value="";
+	document.forms["listcustomers"].submit();
+}
+
+	
 
 </script>
 </body>
+
 </html>
 

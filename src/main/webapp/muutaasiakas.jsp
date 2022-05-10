@@ -80,6 +80,9 @@ function validate(){
 	}else if(document.getElementById("puh").value*1!=document.getElementById("puh").value){
 		document.getElementById("info").innerHTML="Puhelinnumero ei ole luku!";
 		return;
+	}}else if(document.getElementById("puh").value.length<6){
+		document.getElementById("info").innerHTML="Puhelinnumero on liian lyhyt!";
+		return;
 	}else if(document.getElementById("sposti").value.length<5){
 		document.getElementById("info").innerHTML="Sähköposti on liian lyhyt!";
 		return;

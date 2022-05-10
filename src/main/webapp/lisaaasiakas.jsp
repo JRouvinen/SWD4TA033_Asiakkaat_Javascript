@@ -50,7 +50,7 @@ tr {
 				<td><input type="text" name="sukun" id="sukun"></td>
 				<td><input type="text" name="puh" id="puh"></td>
 				<td><input type="text" name="sposti" id="sposti"></td> 
-				<td><input type="submit" id="save" value="Lisää asiakas" onclick="validate()"></td>
+				<td><input type="button" id="save" value="Lisää asiakas" onclick="validate()"></td>
 				
 			</tr>
 		</tbody>
@@ -67,7 +67,7 @@ function validate(){
 	}else if(document.getElementById("sukun").value.length<2){
 		document.getElementById("info").innerHTML="Sukunimi on liian lyhyt!";
 		return;
-	}else if(document.getElementById("puh").value.length<1){
+	}else if(document.getElementById("puh").value.length<6){
 		document.getElementById("info").innerHTML="Puhelinnumero on liian lyhyt!";
 		return;
 	}else if(document.getElementById("puh").value*1!=document.getElementById("puh").value){
@@ -84,8 +84,10 @@ function validate(){
 	document.getElementById("sukun").value=clean(document.getElementById("sukun").value);
 	document.getElementById("puh").value=clean(document.getElementById("puh").value);
 	document.getElementById("sposti").value=clean(document.getElementById("sposti").value);
-	document.getElementById("asiakasid").value=addcustomerid(document.getElementById("asiakasid").value;
+	document.getElementById("asiakasid").value=addcustomerid();
 	document.forms["addcustomer"].submit();
+	document.getElementById("info").innerHTML="Asiakkaan lisääminen onnistui";
+	
 }
 
 function addcustomerid(custid){
